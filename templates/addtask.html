@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Task</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h1>TaskFlow</h1>
+
+    <div class="nav-links">
+
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'logout' %}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h2>Add New Task</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Title</label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Enter task title"
+                required
+            >
+
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                rows="5"
+                placeholder="Enter task description"
+            ></textarea>
+
+
+            <label>Due Date</label>
+
+            <input
+                type="date"
+                name="due_date"
+                required
+            >
+
+
+            <label>Priority</label>
+
+            <select name="priority">
+
+                <option value="High">
+                    High
+                </option>
+
+                <option value="Medium" selected>
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Add Task
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

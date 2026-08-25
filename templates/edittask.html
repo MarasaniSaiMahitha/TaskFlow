@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Task</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h1>TaskFlow</h1>
+
+    <div class="nav-links">
+
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'logout' %}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h2>Edit Task</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Title</label>
+
+            <input
+                type="text"
+                name="title"
+                value="{{ task.title }}"
+                required
+            >
+
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                rows="5"
+            >{{ task.description }}</textarea>
+
+
+            <label>Due Date</label>
+
+            <input
+                type="date"
+                name="due_date"
+                value="{{ task.due_date|date:'Y-m-d' }}"
+                required
+            >
+
+
+            <label>Priority</label>
+
+            <select name="priority">
+
+                <option value="High"
+                {% if task.priority == "High" %}selected{% endif %}>
+                    High
+                </option>
+
+                <option value="Medium"
+                {% if task.priority == "Medium" %}selected{% endif %}>
+                    Medium
+                </option>
+
+                <option value="Low"
+                {% if task.priority == "Low" %}selected{% endif %}>
+                    Low
+                </option>
+
+            </select>
+
+
+            <label>Status</label>
+
+            <select name="status">
+
+                <option value="Pending"
+                {% if task.status == "Pending" %}selected{% endif %}>
+                    Pending
+                </option>
+
+                <option value="In Progress"
+                {% if task.status == "In Progress" %}selected{% endif %}>
+                    In Progress
+                </option>
+
+                <option value="Completed"
+                {% if task.status == "Completed" %}selected{% endif %}>
+                    Completed
+                </option>
+
+                <option value="Cancelled"
+                {% if task.status == "Cancelled" %}selected{% endif %}>
+                    Cancelled
+                </option>
+
+            </select>
+
+
+            <button type="submit" class="submit-btn">
+
+                Update Task
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Home</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h1>TaskFlow</h1>
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'register' %}">
+                Register
+            </a>
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <div class="home-container">
+
+        <div class="home-content">
+
+            <h1>Welcome to TaskFlow</h1>
+
+            <p>
+                Manage your daily tasks, track your progress,
+                organize your work, and achieve your goals
+                with an easy and powerful task management system.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="{% url 'register' %}" class="home-btn">
+                    Register
+                </a>
+
+                <a href="{% url 'login' %}" class="home-btn">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

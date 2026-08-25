@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Task</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<nav>
+    <h1>TaskFlow</h1>
+
+    <div class="nav-links">
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+</nav>
+
+<div class="register-container">
+
+    <div class="dashboard-card">
+
+        <h2 style="text-align:center;color:#dc2626;">
+            Delete Task
+        </h2>
+
+        <p style="text-align:center;font-size:18px;">
+            Are you sure you want to delete
+            <strong>"{{ task.title }}"</strong>?
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div style="display:flex;justify-content:center;gap:15px;margin-top:25px;">
+
+                <button type="submit" class="delete-btn">
+                    Yes, Delete
+                </button>
+
+                <a href="{% url 'dashboard' %}" class="cancel-btn">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

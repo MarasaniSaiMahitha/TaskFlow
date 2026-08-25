@@ -1,0 +1,483 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h1>TaskFlow</h1>
+
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'completed' %}">
+            Completed
+        </a>
+
+        <a href="{% url 'profile' %}">
+            Profile
+        </a>
+
+        <a href="{% url 'logout' %}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-title">
+
+
+        <div>
+
+            <h2>
+                Welcome, {{ request.user.first_name }} 👋
+            </h2>
+
+            <p>
+                Manage your daily tasks efficiently.
+            </p>
+
+        </div>
+
+
+
+        <a href="{% url 'addtask' %}" class="add-task-btn">
+            + Add Task
+        </a>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="summary-container">
+
+
+        <div class="summary-card">
+
+            <div class="card-icon">
+                📋
+            </div>
+
+            <h3>
+                Total Tasks
+            </h3>
+
+            <h1>
+                {{ total_tasks }}
+            </h1>
+
+        </div>
+
+
+
+
+
+        <div class="summary-card">
+
+            <div class="card-icon">
+                ⏳
+            </div>
+
+            <h3>
+                Pending
+            </h3>
+
+            <h1>
+                {{ pending_tasks }}
+            </h1>
+
+        </div>
+
+
+
+
+
+
+        <div class="summary-card">
+
+            <div class="card-icon">
+                ✅
+            </div>
+
+            <h3>
+                Completed
+            </h3>
+
+            <h1>
+                {{ completed_tasks }}
+            </h1>
+
+        </div>
+
+
+
+
+
+
+        <div class="summary-card
+{% if due_today > 0 %}
+due-danger
+
+{% elif due_soon > 0 %}
+due-warning
+
+{% endif %}
+">
+
+
+    <div class="card-icon">
+        ⏰
+    </div>
+
+
+    <h3>
+        Due Soon
+    </h3>
+
+
+    <h1>
+        {{ due_today|add:due_soon }}
+    </h1>
+
+
+</div>
+
+
+    </div>
+
+
+<!-- Search Tasks -->
+
+<div class="search-container">
+
+    <form method="GET" action="{% url 'dashboard' %}">
+
+
+        <input 
+            type="text"
+            name="search"
+            placeholder="Search tasks..."
+            value="{{ request.GET.search }}"
+        >
+
+
+
+        <select name="priority">
+
+
+            <option value="">
+                All Priorities
+            </option>
+
+
+            <option value="High"
+            {% if request.GET.priority == "High" %}
+                selected
+            {% endif %}
+            >
+                High
+            </option>
+
+
+
+            <option value="Medium"
+            {% if request.GET.priority == "Medium" %}
+                selected
+            {% endif %}
+            >
+                Medium
+            </option>
+
+
+
+
+            <option value="Low"
+            {% if request.GET.priority == "Low" %}
+                selected
+            {% endif %}
+            >
+                Low
+            </option>
+
+
+
+        </select>
+        <select name="status">
+
+
+    <option value="">
+        All Status
+    </option>
+
+
+    <option value="Pending"
+    {% if request.GET.status == "Pending" %}
+        selected
+    {% endif %}
+    >
+        Pending
+    </option>
+
+
+
+    <option value="Completed"
+    {% if request.GET.status == "Completed" %}
+        selected
+    {% endif %}
+    >
+        Completed
+    </option>
+
+
+    </select>
+
+
+
+        <button type="submit">
+            🔍 Search
+        </button>
+
+
+    </form>
+
+</div>
+
+
+    <table class="task-table">
+
+
+        <thead>
+
+
+            <tr>
+
+                <th>Title</th>
+
+                <th>Priority</th>
+
+                <th>Due Date</th>
+
+                <th>Status</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+
+        </thead>
+
+
+
+
+
+        <tbody>
+
+
+        {% for task in tasks %}
+
+
+            <tr>
+
+
+                <td>
+                    {{ task.title }}
+                </td>
+
+
+
+                <td>
+                    {{ task.priority }}
+                </td>
+
+
+
+
+                <td>
+                    {{ task.due_date|date:"d M Y" }}
+                </td>
+
+
+
+
+                <td>
+
+
+                    {% if task.status == "Completed" %}
+
+
+                        <span class="completed-badge">
+
+                            ✅ Completed
+
+                        </span>
+
+
+                    {% else %}
+
+
+                        <span class="pending-badge">
+
+                            ⏳ Pending
+
+                        </span>
+
+
+                    {% endif %}
+
+
+                </td>
+
+
+
+
+
+                <td>
+
+
+                    {% if task.status == "Pending" %}
+
+
+                        <a href="{% url 'complete_task' task.id %}" class="action-btn complete">
+                            ✔ Complete
+                        </a>
+
+
+                    {% else %}
+
+
+                        <span>
+                            ✅ Completed
+                        </span>
+
+
+                    {% endif %}
+
+
+
+
+
+                    <a href="{% url 'edit_task' task.id %}" class="action-btn edit">
+                        ✏ Edit
+                    </a>
+
+
+
+
+
+                    <a href="{% url 'delete_task' task.id %}" class="delete-btn">
+                        🗑 Delete
+                    </a>
+
+
+
+                </td>
+
+
+
+            </tr>
+
+
+
+
+
+        {% empty %}
+
+
+
+            <tr>
+
+
+                <td colspan="5" style="text-align:center;padding:25px;">
+
+                    No tasks available.
+
+                </td>
+
+
+            </tr>
+
+
+
+
+        {% endfor %}
+
+
+
+        </tbody>
+
+
+
+    </table>
+    <div class="pagination">
+
+
+    {% if tasks.has_previous %}
+
+        <a href="?page={{ tasks.previous_page_number }}&search={{ request.GET.search }}&priority={{ request.GET.priority }}&status={{ request.GET.status }}">
+            Previous
+        </a>
+
+    {% endif %}
+
+
+
+
+    <span>
+
+        Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}
+
+    </span>
+
+
+
+
+    {% if tasks.has_next %}
+
+        <a href="?page={{ tasks.next_page_number }}&search={{ request.GET.search }}&priority={{ request.GET.priority }}&status={{ request.GET.status }}">
+            Next
+        </a>
+
+    {% endif %}
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

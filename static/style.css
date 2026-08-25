@@ -1,0 +1,1511 @@
+/* ===================================================
+                GLOBAL STYLES
+=================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#F5F7FA;
+
+    color:#333;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+input,
+select,
+textarea,
+button{
+
+    font-family:inherit;
+
+}
+
+
+/* ===================================================
+                    NAVBAR
+=================================================== */
+
+nav{
+
+    width:100%;
+
+    background:#16A34A;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 60px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+nav h1{
+
+    color:white;
+
+    font-size:34px;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#DCFCE7;
+
+}
+
+
+/* ===================================================
+                    HOME PAGE
+=================================================== */
+
+.home-container{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.home-content{
+
+    max-width:850px;
+
+}
+
+.home-content h1{
+
+    font-size:60px;
+
+    color:#16A34A;
+
+    margin-bottom:25px;
+
+}
+
+.home-content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+.home-buttons{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.home-buttons a{
+
+    background:#16A34A;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.home-buttons a:hover{
+
+    background:#15803D;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ===================================================
+                LOGIN / REGISTER
+=================================================== */
+
+.form-container{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.form-card{
+
+    width:430px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.form-card h2{
+
+    text-align:center;
+
+    color:#16A34A;
+
+    margin-bottom:12px;
+
+}
+
+.form-card p{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:25px;
+
+}
+
+.form-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.form-card input{
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-card input:focus{
+
+    border-color:#16A34A;
+
+    box-shadow:0 0 8px rgba(22,163,74,.2);
+
+}
+
+.form-card button{
+
+    background:#16A34A;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+.form-card button:hover{
+
+    background:#15803D;
+
+}
+
+.bottom-link{
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
+.bottom-link a{
+
+    color:#16A34A;
+
+    font-weight:bold;
+
+}
+
+.bottom-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+.error-message{
+
+    color:red;
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+/* ===================================================
+                    DASHBOARD
+=================================================== */
+
+.dashboard-container{
+
+    width:90%;
+
+    margin:40px auto;
+
+}
+
+.dashboard-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.dashboard-title h2{
+
+    font-size:34px;
+
+    color:#222;
+
+}
+
+.dashboard-title p{
+
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+.add-task-btn{
+
+    background:#16A34A;
+
+    color:white;
+
+    padding:14px 24px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.add-task-btn:hover{
+
+    background:#15803D;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* ===================================================
+                SUMMARY CARDS
+=================================================== */
+
+.summary-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.summary-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 22px rgba(0,0,0,.15);
+
+}
+
+.card-icon{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.summary-card h3{
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+.summary-card h1{
+
+    color:#16A34A;
+
+    font-size:42px;
+
+}
+
+
+
+/* ===================================================
+                    SEARCH
+=================================================== */
+
+.search-container{
+
+    margin-bottom:30px;
+
+}
+
+.search-container form{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.search-container input{
+
+    flex:2;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+.search-container select{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    min-width:170px;
+
+}
+
+.search-container button{
+
+    background:#16A34A;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+.search-container button:hover{
+
+    background:#15803D;
+
+}
+
+
+
+/* ===================================================
+                    TABLE
+=================================================== */
+
+.task-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.task-table th{
+
+    background:#16A34A;
+
+    color:white;
+
+    padding:16px;
+
+    font-size:17px;
+
+    text-align:left;
+
+}
+
+.task-table td{
+
+    padding:16px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.task-table tr:hover{
+
+    background:#f8f9fa;
+
+}
+
+
+
+/* ===================================================
+                STATUS BADGES
+=================================================== */
+
+.pending-badge{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+    padding:8px 14px;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+}
+
+.completed-badge{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+    padding:8px 14px;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* ===================================================
+                ACTION BUTTONS
+=================================================== */
+
+.action-btn{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    color:white;
+
+    font-size:14px;
+
+    margin-right:8px;
+
+    margin-bottom:6px;
+
+    transition:.3s;
+
+}
+
+.complete{
+
+    background:#16A34A;
+
+}
+
+.complete:hover{
+
+    background:#15803D;
+
+}
+
+.edit{
+
+    background:#2563EB;
+
+}
+
+.edit:hover{
+
+    background:#1D4ED8;
+
+}
+
+.delete{
+
+    background:#DC2626;
+
+}
+
+.delete:hover{
+
+    background:#B91C1C;
+
+}
+
+
+
+/* ===================================================
+                DUE DATE COLORS
+=================================================== */
+
+.due-warning{
+
+    background:#FFF8DB;
+
+    border:2px solid #FACC15;
+
+}
+
+.due-danger{
+
+    background:#FFE4E6;
+
+    border:2px solid #EF4444;
+
+}
+
+
+
+/* ===================================================
+                PAGINATION
+=================================================== */
+
+.pagination{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.pagination a{
+
+    background:#16A34A;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.pagination a:hover{
+
+    background:#15803D;
+
+}
+
+.pagination span{
+
+    font-weight:bold;
+
+    color:#444;
+
+}
+
+/* ===================================================
+                FORM PAGES
+(Add Task | Edit Task)
+=================================================== */
+
+.page-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.form-box{
+
+    width:650px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+
+}
+
+.form-box h2{
+
+    text-align:center;
+
+    color:#16A34A;
+
+    margin-bottom:25px;
+
+}
+
+.form-group{
+
+    margin-bottom:18px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#444;
+
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:#16A34A;
+
+    box-shadow:0 0 8px rgba(22,163,74,.25);
+
+}
+
+.submit-btn{
+
+    width:100%;
+
+    background:#16A34A;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.submit-btn:hover{
+
+    background:#15803D;
+
+}
+
+
+
+/* ===================================================
+                COMPLETED PAGE
+=================================================== */
+
+.completed-container{
+
+    width:90%;
+
+    margin:40px auto;
+
+}
+
+.completed-title{
+
+    font-size:34px;
+
+    color:#16A34A;
+
+    margin-bottom:25px;
+
+}
+
+.completed-card{
+
+    background:white;
+
+    border-left:6px solid #16A34A;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+
+}
+
+.completed-card h3{
+
+    margin-bottom:8px;
+
+    color:#222;
+
+}
+
+.completed-card p{
+
+    color:#666;
+
+    margin:5px 0;
+
+}
+
+
+
+/* ===================================================
+                PROFILE PAGE
+=================================================== */
+
+.profile-container{
+
+    width:90%;
+
+    margin:40px auto;
+
+}
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+.profile-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.profile-card h2{
+
+    color:#16A34A;
+
+    margin-bottom:20px;
+
+}
+
+.profile-card p{
+
+    margin:12px 0;
+
+    font-size:17px;
+
+}
+
+.profile-buttons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.profile-btn{
+
+    background:#16A34A;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+    font-weight:bold;
+
+}
+
+.profile-btn:hover{
+
+    background:#15803D;
+
+}
+
+
+
+/* ===================================================
+                SUCCESS / ERROR
+=================================================== */
+
+.success-message{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+}
+
+.error-message{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* ===================================================
+                EMPTY DATA
+=================================================== */
+
+.empty-box{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    color:#777;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+/* ===================================================
+                BADGES
+=================================================== */
+
+.priority-high{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+.priority-medium{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+.priority-low{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+/* ===================================================
+                ANIMATIONS
+=================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.dashboard-container,
+.home-container,
+.form-container,
+.profile-container,
+.completed-container{
+
+    animation:fadeIn .6s ease;
+
+}
+
+
+/* ===================================================
+                HOVER EFFECTS
+=================================================== */
+
+.summary-card,
+.profile-card,
+.completed-card,
+.form-box{
+
+    transition:.3s;
+
+}
+
+.summary-card:hover,
+.profile-card:hover,
+.completed-card:hover,
+.form-box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.task-table tr{
+
+    transition:.2s;
+
+}
+
+.task-table tr:hover{
+
+    background:#f3f4f6;
+
+}
+
+
+/* ===================================================
+                SCROLLBAR
+=================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f1f1f1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#16A34A;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#15803D;
+
+}
+
+
+/* ===================================================
+                MOBILE (768px)
+=================================================== */
+
+@media(max-width:768px){
+
+    nav{
+
+        flex-direction:column;
+
+        padding:20px;
+
+        gap:15px;
+
+    }
+
+    nav h1{
+
+        font-size:30px;
+
+    }
+
+    .nav-links{
+
+        flex-direction:column;
+
+        width:100%;
+
+        gap:10px;
+
+        align-items:center;
+
+    }
+
+    .nav-links a{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:12px;
+
+        border-radius:8px;
+
+        background:rgba(255,255,255,.12);
+
+    }
+
+    .nav-links a:hover{
+
+        background:rgba(255,255,255,.25);
+
+    }
+
+
+    /* Home */
+
+    .home-content h1{
+
+        font-size:40px;
+
+    }
+
+    .home-content p{
+
+        font-size:18px;
+
+    }
+
+    .home-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .home-buttons a{
+
+        width:220px;
+
+        text-align:center;
+
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-title{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+    }
+
+    .summary-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .search-container form{
+
+        flex-direction:column;
+
+    }
+
+    .search-container input,
+    .search-container select,
+    .search-container button{
+
+        width:100%;
+
+    }
+
+    .task-table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+
+    /* Forms */
+
+    .form-card,
+    .form-box{
+
+        width:100%;
+
+        padding:25px;
+
+    }
+
+
+    /* Profile */
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .profile-btn{
+
+        text-align:center;
+
+    }
+
+}
+
+
+/* ===================================================
+                TABLET (769px - 1024px)
+=================================================== */
+
+@media(min-width:769px) and (max-width:1024px){
+
+    .summary-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* ===================================================
+                LARGE SCREEN
+=================================================== */
+
+@media(min-width:1400px){
+
+    .dashboard-container,
+    .profile-container,
+    .completed-container{
+
+        width:80%;
+
+    }
+
+}
+
+
+/* ===================================================
+                FOOTER (Future)
+=================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+
+/* ===================================================
+                FINAL UTILITIES
+=================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.shadow{
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.rounded{
+
+    border-radius:15px;
+
+}
+
+.delete-btn{
+    background:#dc2626;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
+.cancel-btn{
+    background:#16A34A;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.cancel-btn:hover{
+    background:#15803d;
+}

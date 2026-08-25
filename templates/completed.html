@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Completed Tasks</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h1>TaskFlow</h1>
+
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'completed' %}">
+            Completed
+        </a>
+
+        <a href="{% url 'profile' %}">
+            Profile
+        </a>
+
+        <a href="{% url 'logout' %}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+
+<div class="dashboard-container">
+
+
+    <div class="dashboard-title">
+
+
+        <div>
+
+            <h2>
+                Completed Tasks ✅
+            </h2>
+
+            <p>
+                Tasks you have successfully completed.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+<table class="task-table">
+
+
+<thead>
+
+<tr>
+
+    <th>
+        Title
+    </th>
+
+
+    <th>
+        Priority
+    </th>
+
+
+    <th>
+        Due Date
+    </th>
+
+
+    <th>
+        Status
+    </th>
+
+
+    <th>
+        Action
+    </th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+{% for task in tasks %}
+
+
+<tr>
+
+
+<td>
+    {{ task.title }}
+</td>
+
+
+
+<td>
+    {{ task.priority }}
+</td>
+
+
+
+<td>
+    {{ task.due_date|date:"d M Y" }}
+</td>
+
+
+
+
+<td>
+
+<span class="completed-badge">
+
+    ✅ Completed
+
+</span>
+
+</td>
+
+
+
+
+<td>
+
+<a href="{% url 'undo_complete' task.id %}">
+    ↩ Mark Pending
+</a>
+
+
+<a href="{% url 'delete_task' task.id %}">
+    🗑 Delete
+</a>
+
+
+</td>
+
+
+
+</tr>
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="5" style="text-align:center;padding:25px;">
+
+No completed tasks yet.
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</body>
+
+</html>

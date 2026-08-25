@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | TaskFlow</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<nav>
+
+    <h1>TaskFlow</h1>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h2>Create Account</h2>
+
+        <p>Register to start managing your daily tasks.</p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="user_name"
+                placeholder="Username"
+                required
+            >
+
+            <input
+                type="text"
+                name="first_name"
+                placeholder="First Name"
+                required
+            >
+
+            <input
+                type="text"
+                name="last_name"
+                placeholder="Last Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error-message">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+
+            <button type="submit">
+
+                Register
+
+            </button>
+
+        </form>
+
+        <p class="bottom-link">
+
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
